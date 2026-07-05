@@ -1,137 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap');
-
-:root {
-  --red-primary: #E3001B;
-  --red-gradient: linear-gradient(135deg, #E3001B 0%, #990012 100%);
-  --bg-light: #F8F9FA;
-  --text-dark: #1E293B;
-  --text-muted: #64748B;
-  --card-bg: #FFFFFF;
+/* Tambahan untuk Logo & Lokasi */
+.logo-hut {
+  height: 80px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-
-body { 
-  background-color: var(--bg-light); 
-  color: var(--text-dark); 
-}
-
-/* Hero Section (Header) */
-.hero {
-  background: var(--red-gradient);
-  color: white;
-  text-align: center;
-  padding: 80px 20px;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  box-shadow: 0 10px 30px rgba(227, 0, 27, 0.2);
-  margin-bottom: 50px;
-}
-.hero h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 10px; }
-.hero p { font-size: 1.1rem; font-weight: 400; opacity: 0.9; }
-
-/* Container Utama */
-.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
-
-/* Judul Bagian */
-.section-title {
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--text-dark);
-  margin-bottom: 40px;
-  position: relative;
-}
-.section-title::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 5px;
-  background: var(--red-primary);
-  margin: 12px auto 0;
-  border-radius: 5px;
-}
-
-/* Grid Kartu Lomba */
-.grid-lomba {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-bottom: 60px;
-}
-.card {
-  background: var(--card-bg);
-  border-radius: 20px;
-  padding: 30px 20px;
-  text-align: center;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  border-top: 6px solid var(--red-primary);
-  transition: all 0.3s ease;
-}
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 25px -5px rgba(227, 0, 27, 0.15);
-}
-.card-icon { font-size: 3rem; margin-bottom: 15px; display: block; }
-.card h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
-.card .kategori {
+.lokasi-info {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 15px 25px;
+  border-radius: 15px;
   display: inline-block;
-  background: #FEE2E2;
-  color: var(--red-primary);
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
+.lokasi-info p { margin: 5px 0; font-size: 0.95rem; font-weight: 600; }
 
-/* Form Pendaftaran Modern */
-.form-container {
-  background: white;
+/* Tambahan untuk Slider Gambar */
+.slider-container {
+  max-width: 900px;
+  margin: -40px auto 50px;
+  position: relative;
   border-radius: 24px;
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-  max-width: 500px;
-  margin: 0 auto 60px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+  background: var(--card-bg);
+  border: 5px solid white;
 }
-.form-container h3 { text-align: center; margin-bottom: 30px; font-size: 1.5rem; font-weight: 800; }
-.form-group { margin-bottom: 20px; text-align: left; }
-.form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.95rem; }
-.form-control {
-  width: 100%;
-  padding: 14px 16px;
-  border: 2px solid #E2E8F0;
-  border-radius: 12px;
-  font-size: 1rem;
-  transition: all 0.3s;
-  background: #F8F9FA;
-}
-.form-control:focus {
-  border-color: var(--red-primary);
-  outline: none;
-  background: white;
-  box-shadow: 0 0 0 4px rgba(227, 0, 27, 0.1);
-}
-.btn-submit {
-  width: 100%;
-  background: var(--red-gradient);
-  color: white;
-  padding: 16px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin-top: 10px;
-}
-.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(227, 0, 27, 0.2); }
+.slide { display: none; width: 100%; height: 400px; }
+.slide.active { display: block; animation: fade 0.8s; }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+@keyframes fade { from { opacity: 0.4 } to { opacity: 1 } }
 
-/* Footer */
-.footer { text-align: center; padding-bottom: 40px; }
-.btn-login {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(227, 0, 27, 0.8);
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.3s;
 }
-.btn-login:hover { color: var(--red-primary); }
+.slider-btn:hover { background: var(--text-dark); }
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
