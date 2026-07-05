@@ -1,59 +1,110 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Panitia 17-an</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Panitia 17-an</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1>PORTAL PANITIA</h1>
-      <h2>PERAYAAN 17 AGUSTUS</h2>
-      <p class="hero-subtitle">Bersama Membangun Semangat Kemerdekaan</p>
-    </div>
-  </div>
 
-  <section class="lomba-section">
-    <h2 class="section-title">DAFTAR LOMBA</h2>
-    <div class="lomba-grid">
-      <div class="lomba-card">
-        <div class="lomba-icon">🏃</div>
-        <h3>Balap Karung</h3>
-        <p>Kategori: Umum</p>
-      </div>
-      <div class="lomba-card">
-        <div class="lomba-icon">🍽️</div>
-        <h3>Makan Kerupuk</h3>
-        <p>Kategori: Anak-anak & Remaja</p>
-      </div>
-      <div class="lomba-card">
-        <div class="lomba-icon">🪢</div>
-        <h3>Tarik Tambang</h3>
-        <p>Kategori: Dewasa</p>
-      </div>
-      <div class="lomba-card">
-        <div class="lomba-icon">🎤</div>
-        <h3>Karaoke Lagu Nasional</h3>
-        <p>Kategori: Umum</p>
-      </div>
-      <div class="lomba-card">
-        <div class="lomba-icon">🖼️</div>
-        <h3>Menghias Kelas</h3>
-        <p>Kategori: Sekolah</p>
-      </div>
-      <div class="lomba-card">
-        <div class="lomba-icon">♟️</div>
-        <h3>Catur</h3>
-        <p>Kategori: Umum</p>
-      </div>
-    </div>
-  </section>
+    <!-- Header Area -->
+    <header class="hero">
+        <h1>PORTAL PANITIA</h1>
+        <p>Perayaan 17 Agustus • Bersama Membangun Semangat Kemerdekaan</p>
+    </header>
 
-  <footer class="home-footer">
-    <a href="login.html" class="btn-login">LOGIN PANITIA</a>
-  </footer>
+    <main class="container">
+        
+        <!-- Bagian Daftar Lomba -->
+        <h2 class="section-title">DAFTAR LOMBA</h2>
+        <div class="grid-lomba">
+            <!-- Kartu 1 -->
+            <div class="card">
+                <span class="card-icon">🥔</span>
+                <h3>Balap Karung</h3>
+                <span class="kategori">Kategori: Umum</span>
+            </div>
+            <!-- Kartu 2 -->
+            <div class="card">
+                <span class="card-icon">🍘</span>
+                <h3>Makan Kerupuk</h3>
+                <span class="kategori">Kategori: Anak & Remaja</span>
+            </div>
+            <!-- Kartu 3 -->
+            <div class="card">
+                <span class="card-icon">💪</span>
+                <h3>Tarik Tambang</h3>
+                <span class="kategori">Kategori: Dewasa</span>
+            </div>
+        </div>
+
+        <!-- Bagian Form Pendaftaran -->
+        <div class="form-container">
+            <h3>🇮🇩 Daftar Lomba Sekarang</h3>
+            <form id="formDaftar">
+                <div class="form-group">
+                    <label for="namaPeserta">Nama Lengkap</label>
+                    <input type="text" id="namaPeserta" class="form-control" placeholder="Contoh: Budi Santoso" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="pilihanLomba">Pilih Cabang Lomba</label>
+                    <select id="pilihanLomba" class="form-control" required>
+                        <option value="">-- Silakan Pilih --</option>
+                        <option value="Balap Karung">Balap Karung</option>
+                        <option value="Makan Kerupuk">Makan Kerupuk</option>
+                        <option value="Tarik Tambang">Tarik Tambang</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn-submit">Kirim Pendaftaran!</button>
+            </form>
+        </div>
+
+        <!-- Bagian Footer / Login -->
+        <div class="footer">
+            <a href="login.html" class="btn-login">🔒 Masuk sebagai Panitia</a>
+        </div>
+
+    </main>
+
+    <!-- Script Pengiriman Data Pendaftaran -->
+    <script>
+        document.getElementById('formDaftar').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const nama = document.getElementById('namaPeserta').value;
+            const lomba = document.getElementById('pilihanLomba').value;
+            const btn = e.target.querySelector('button');
+            
+            // Ubah tombol saat loading
+            const originalText = btn.innerText;
+            btn.innerText = 'Mengirim data...';
+            btn.style.opacity = '0.7';
+
+            try {
+                const res = await fetch('/api/daftar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nama, lomba })
+                });
+                
+                const data = await res.json();
+                if(data.success) {
+                    alert('🎉 MERDEKA! Pendaftaran berhasil.');
+                    e.target.reset(); // Kosongkan form
+                } else {
+                    alert('Gagal mendaftar. Silakan coba lagi.');
+                }
+            } catch(err) {
+                alert('Gagal terhubung ke server pendaftaran.');
+            }
+            
+            // Kembalikan tombol ke semula
+            btn.innerText = originalText;
+            btn.style.opacity = '1';
+        });
+    </script>
 </body>
 </html>
