@@ -1,49 +1,28 @@
-/* Tambahan untuk Logo & Lokasi */
-.logo-hut {
-  height: 80px;
-  margin-bottom: 20px;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
-}
-.lokasi-info {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
-  padding: 15px 25px;
-  border-radius: 15px;
-  display: inline-block;
-  margin-top: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-}
-.lokasi-info p { margin: 5px 0; font-size: 0.95rem; font-weight: 600; }
+/* Hitung Mundur (Countdown) */
+.countdown-wrapper { text-align: center; margin: -20px auto 40px; position: relative; z-index: 10; }
+.countdown { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+.time-box { background: var(--text-dark); color: white; padding: 15px 10px; border-radius: 12px; min-width: 80px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.time-box span { display: block; font-size: 2.2rem; font-weight: 800; color: #FCD34D; }
+.time-box p { font-size: 0.85rem; margin: 0; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-/* Tambahan untuk Slider Gambar */
-.slider-container {
-  max-width: 900px;
-  margin: -40px auto 50px;
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-  background: var(--card-bg);
-  border: 5px solid white;
+/* Papan Hadiah Utama */
+.hadiah-banner {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: white; padding: 30px; border-radius: 20px; text-align: center; margin-bottom: 50px;
+  box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3); border: 4px solid #FDE68A;
 }
-.slide { display: none; width: 100%; height: 400px; }
-.slide.active { display: block; animation: fade 0.8s; }
-.slide img { width: 100%; height: 100%; object-fit: cover; }
-@keyframes fade { from { opacity: 0.4 } to { opacity: 1 } }
+.hadiah-banner h2 { font-size: 1.8rem; margin-bottom: 10px; text-shadow: 1px 2px 4px rgba(0,0,0,0.2); }
+.hadiah-banner p { font-size: 1.1rem; font-weight: 600; }
 
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(227, 0, 27, 0.8);
-  color: white;
-  border: none;
-  padding: 15px 20px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: 0.3s;
-}
-.slider-btn:hover { background: var(--text-dark); }
-.prev-btn { left: 20px; }
-.next-btn { right: 20px; }
+/* Jadwal (Rundown) */
+.jadwal-container { max-width: 600px; margin: 0 auto 60px; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+.jadwal-item { display: flex; padding: 15px 0; border-bottom: 2px dashed #E2E8F0; align-items: center; }
+.jadwal-item:last-child { border-bottom: none; }
+.jadwal-waktu { font-weight: 800; color: var(--red-primary); width: 110px; font-size: 1.1rem; }
+.jadwal-kegiatan { font-weight: 600; color: var(--text-dark); font-size: 1.05rem; }
+
+/* Daftar Sponsor */
+.sponsor-section { text-align: center; margin-bottom: 60px; padding-top: 30px; border-top: 2px solid #E2E8F0; }
+.sponsor-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 25px; align-items: center; }
+.sponsor-grid img { max-height: 50px; filter: grayscale(100%); opacity: 0.6; transition: all 0.3s ease; }
+.sponsor-grid img:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.1); }
