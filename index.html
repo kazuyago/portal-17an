@@ -8,7 +8,9 @@
 </head>
 <body>
 
+    <!-- Header Area -->
     <header class="hero">
+        <img src="https://placehold.co/300x120/ffffff/e3001b?text=HUT+RI+81" alt="Logo HUT RI 81" class="logo-hut">
         <h1>PORTAL PANITIA</h1>
         <p>Perayaan Kemerdekaan • Bersama Membangun Semangat Warga</p>
         <div class="lokasi-info">
@@ -19,8 +21,9 @@
 
     <main class="container">
         
+        <!-- Hitung Mundur -->
         <div class="countdown-wrapper">
-            <h2 style="color: var(--text-dark); font-size: 1.2rem;">Menuju Puncak Acara</h2>
+            <h2 style="color: var(--text-dark); font-size: 1.2rem;">Menuju Puncak Acara Kemerdekaan</h2>
             <div class="countdown" id="countdown-display">
                 <div class="time-box"><span id="hari">00</span><p>Hari</p></div>
                 <div class="time-box"><span id="jam">00</span><p>Jam</p></div>
@@ -29,20 +32,142 @@
             </div>
         </div>
 
+        <!-- Slider Promosi -->
         <div class="slider-container">
-            <div class="slide active"><img src="https://i.imgur.com/qUm3pzX.jpeg" alt="HUT RI 81"></div>
-            <div class="slide"><img src="https://placehold.co/900x400/1E293B/ffffff?text=Raih+Hadiah+Utama" alt="Promo"></div>
+            <div class="slide active"><img src="https://placehold.co/900x400/e3001b/ffffff?text=Semarak+Lomba+17-an+RT+004!" alt="Promo 1"></div>
+            <div class="slide"><img src="https://placehold.co/900x400/1E293B/ffffff?text=Raih+Hadiah+Utama+Sepeda+Gunung" alt="Promo 2"></div>
+            <div class="slide"><img src="https://placehold.co/900x400/F59E0B/ffffff?text=Ayo+Daftarkan+Keluarga+Anda!" alt="Promo 3"></div>
+            <button class="slider-btn prev-btn" onclick="ubahSlide(-1)">❮</button>
+            <button class="slider-btn next-btn" onclick="ubahSlide(1)">❯</button>
         </div>
 
+        <!-- Papan Pengumuman Hadiah Utama -->
         <div class="hadiah-banner">
             <h2>🎁 REBUT TOTAL HADIAH JUTAAN RUPIAH!</h2>
-            <p>Hadiah Utama: Sepeda Gunung, Magic Com, dan Doorprize Lainnya.</p>
+            <p>Hadiah Utama: Sepeda Gunung, Magic Com, Kipas Angin, dan Puluhan Doorprize Menarik Lainnya.</p>
         </div>
 
-        </main>
+        <!-- Jadwal Pelaksanaan (Rundown) -->
+        <h2 class="section-title">JADWAL PELAKSANAAN</h2>
+        <div class="jadwal-container">
+            <div class="jadwal-item"><div class="jadwal-waktu">07:00 WIB</div><div class="jadwal-kegiatan">Upacara Bendera & Pembukaan</div></div>
+            <div class="jadwal-item"><div class="jadwal-waktu">08:00 WIB</div><div class="jadwal-kegiatan">Senam Sehat Bersama Warga</div></div>
+            <div class="jadwal-item"><div class="jadwal-waktu">09:00 WIB</div><div class="jadwal-kegiatan">Perlombaan Kategori Anak-anak dimulai</div></div>
+            <div class="jadwal-item"><div class="jadwal-waktu">13:00 WIB</div><div class="jadwal-kegiatan">Perlombaan Kategori Dewasa (Tarik Tambang & Catur)</div></div>
+            <div class="jadwal-item"><div class="jadwal-waktu">16:00 WIB</div><div class="jadwal-kegiatan">Pengumuman Pemenang & Pembagian Doorprize</div></div>
+        </div>
+
+        <!-- Daftar Lomba -->
+        <h2 class="section-title">DAFTAR LOMBA</h2>
+        <div class="grid-lomba">
+            <div class="card"><span class="card-icon">🍘</span><h3>Makan Kerupuk</h3><span class="kategori">Kategori: Anak</span></div>
+            <div class="card"><span class="card-icon">🥄</span><h3>Lari Kelereng</h3><span class="kategori">Kategori: Anak</span></div>
+            <div class="card"><span class="card-icon">🥔</span><h3>Balap Karung</h3><span class="kategori">Kategori: Anak</span></div>
+            <div class="card"><span class="card-icon">💪</span><h3>Tarik Tambang</h3><span class="kategori">Kategori: Dewasa</span></div>
+            <div class="card"><span class="card-icon">♟️</span><h3>Catur</h3><span class="kategori">Kategori: Dewasa</span></div>
+        </div>
+
+        <!-- Form Pendaftaran -->
+        <div class="form-container">
+            <h3>🇮🇩 Daftar Lomba Sekarang</h3>
+            <form id="formDaftar">
+                <div class="form-group">
+                    <label for="namaPeserta">Nama Lengkap</label>
+                    <input type="text" id="namaPeserta" class="form-control" placeholder="Contoh: Budi Santoso" required>
+                </div>
+                <div class="form-group">
+                    <label for="pilihanLomba">Pilih Cabang Lomba</label>
+                    <select id="pilihanLomba" class="form-control" required>
+                        <option value="">-- Silakan Pilih --</option>
+                        <option value="Makan Kerupuk">Makan Kerupuk (Anak)</option>
+                        <option value="Lari Kelereng">Lari Kelereng (Anak)</option>
+                        <option value="Balap Karung">Balap Karung (Anak)</option>
+                        <option value="Tarik Tambang">Tarik Tambang (Dewasa)</option>
+                        <option value="Catur">Catur (Dewasa)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Kirim Pendaftaran!</button>
+            </form>
+        </div>
+
+        <!-- Daftar Sponsor / Donatur -->
+        <div class="sponsor-section">
+            <h3 style="color: var(--text-muted); font-size: 1.1rem;">Didukung Oleh:</h3>
+            <div class="sponsor-grid">
+                <img src="https://placehold.co/150x60/ffffff/aaaaaa?text=Toko+Beras+Makmur" alt="Sponsor 1">
+                <img src="https://placehold.co/150x60/ffffff/aaaaaa?text=Bengkel+Pak+Jaya" alt="Sponsor 2">
+                <img src="https://placehold.co/150x60/ffffff/aaaaaa?text=Warteg+Bahari" alt="Sponsor 3">
+                <img src="https://placehold.co/150x60/ffffff/aaaaaa?text=Koperasi+Warga" alt="Sponsor 4">
+            </div>
+        </div>
+
+        <!-- Footer / Login -->
+        <div class="footer">
+            <a href="login.html" class="btn-login">🔒 Masuk sebagai Panitia</a>
+        </div>
+
+    </main>
 
     <script>
-        // ... (Script Hitung Mundur, Slider, dan Form tetap sama seperti sebelumnya) ...
+        // --- LOGIKA HITUNG MUNDUR (17 AGUSTUS 2026) ---
+        const countDownDate = new Date("Aug 17, 2026 07:00:00").getTime();
+        const timerInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            if (distance < 0) {
+                clearInterval(timerInterval);
+                document.getElementById("countdown-display").innerHTML = "<h2 style='color: var(--red-primary); font-size: 2rem;'>🎉 ACARA SEDANG BERLANGSUNG! 🎉</h2>";
+                return;
+            }
+
+            document.getElementById("hari").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("jam").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("menit").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("detik").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }, 1000);
+
+        // --- LOGIKA SLIDER GAMBAR ---
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+        function tampilkanSlide(n) {
+            slides.forEach(slide => slide.classList.remove("active"));
+            slideIndex = (n + slides.length) % slides.length;
+            slides[slideIndex].classList.add("active");
+        }
+        function ubahSlide(n) { tampilkanSlide(slideIndex + n); }
+        setInterval(() => { ubahSlide(1); }, 4000);
+
+        // --- LOGIKA FORM PENDAFTARAN ---
+        document.getElementById('formDaftar').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const nama = document.getElementById('namaPeserta').value;
+            const lomba = document.getElementById('pilihanLomba').value;
+            const btn = e.target.querySelector('button');
+            
+            const originalText = btn.innerText;
+            btn.innerText = 'Mengirim data...';
+            btn.style.opacity = '0.7';
+
+            try {
+                const res = await fetch('/api/daftar', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ nama, lomba })
+                });
+                const data = await res.json();
+                if(data.success) {
+                    alert('🎉 MERDEKA! Pendaftaran berhasil.');
+                    e.target.reset();
+                } else {
+                    alert('Gagal mendaftar. Silakan coba lagi.');
+                }
+            } catch(err) {
+                alert('Gagal terhubung ke server pendaftaran.');
+            }
+            btn.innerText = originalText;
+            btn.style.opacity = '1';
+        });
     </script>
 </body>
 </html>
