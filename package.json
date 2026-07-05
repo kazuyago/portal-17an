@@ -1,0 +1,18 @@
+{
+  "name": "portal-panitia-17an",
+  "version": "1.0.0",
+  "description": "Portal Panitia 17-an - Vercel Serverless + Supabase",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.1"
+  },
+  "devDependencies": {
+    "vercel": "^41.3.0"
+  },
+  "keywords": ["17an", "panitia", "lomba"],
+  "license": "MIT"
+}

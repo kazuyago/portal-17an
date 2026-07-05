@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Panitia - 17-an</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+  <header class="dashboard-header">
+    <h1>DASHBOARD PANITIA 17-AN</h1>
+    <button id="btn-logout" class="btn-logout">KELUAR</button>
+  </header>
+
+  <main class="dashboard-main">
+    <section class="stats-bar">
+      <div class="stat-card">
+        <span class="stat-number" id="total-peserta">0</span>
+        <span class="stat-label">Total Peserta</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="total-lomba">6</span>
+        <span class="stat-label">Total Lomba</span>
+      </div>
+    </section>
+
+    <section class="table-section">
+      <h2>Data Peserta</h2>
+      <div class="table-wrapper">
+        <table id="peserta-table">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Lomba</th>
+              <th>Kategori</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="peserta-tbody">
+            <tr class="empty-row">
+              <td colspan="5">Belum ada data peserta</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p id="dashboard-error" class="error-msg"></p>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
